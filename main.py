@@ -218,14 +218,65 @@ if __name__ == '__main__':
     
     
     list.LengthList()
+    
     #Inserting a value at the end of the list
     list.InsertIntoFinal(19)
     list.InsertIntoFinal(20)
+    print('')
+    print(f'The size a list after inserts [{list.size}]')
+    print('')
+
+    n = int(input("Enter the desired value: "))
+    b = int(input("Inser the desired position: "))
+    list.Insert(n, b) #Insert in determinate position, value first aft position 
+    print("List after adding in some position ")
+    list.LengthList()
+    print('')
 
     # 
+    print("--------------- LISTA ---------------")
     list.LengthList()
+    print('')
 
 
-
-    print("----------------")
+    print("--------------- Search Element ---------------")
     list.SearchElement(11)
+    print('')
+
+    print("--------------- Search Position ---------------")
+    list.SearchIndex(9)
+    print('')
+
+
+    print("--------------- Remove First Position ---------------")
+    list.RmvFirstPosition()
+    print("List before remove first Position")
+    list.LengthList()
+    print('')
+
+    print("--------------- Remove Last Position ---------------")
+    list.RmvLastPosition()
+    print("List before remove last Position")
+    list.LengthList()
+    print('')
+
+    print("--------------- Remove Certain Position ---------------")
+    n = int(input('Enter the position you want to remove: '))
+    list.RmvCertainPosition(n)
+    print("List before remove certain position")
+    list.LengthList()
+    print('')
+
+    print("--------------- Remove Determinate Value ---------------")
+    n = int(input('Enter the element you want to remove: '))
+    list.RmvDeterminedValue(n)
+    print("List before remove certain position")
+    list.LengthList()
+    print('')
+
+
+
+    print('--------------------------------------------')
+    print(f'The size a list after remove elements [{list.size}]')
+
+    print('')
