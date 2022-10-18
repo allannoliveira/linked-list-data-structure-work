@@ -1,15 +1,3 @@
-"""
-    __________________________________
-   /        Nome          |   RA      \
-  | Allan Silva Oliveira  | G375068    |
-  | Matheus Lopes Ribeiro | N6318G1    |
-   \__________________________________/
-    """
-
-
-
-
-
 class Node:
     def __init__(self, data):
         self.data = data
@@ -123,7 +111,6 @@ class LinkedList:
                 cont += 1
             self.RmvCertainPosition(cont)
 
-
     def InsertIntoFinal(self, value):
         """Insere no final"""
         current_node = self.head.next
@@ -195,8 +182,7 @@ class LinkedList:
                 print("A value out of range the list")
                 return
         print(f'The value [{element}] is in the position: [{cont}] ')
-        
-          
+                  
 
 if __name__ == '__main__':
     # Making the List
@@ -215,8 +201,6 @@ if __name__ == '__main__':
     list.InsertIntoInit(16)
     list.InsertIntoInit(18)
     # Display the list after entering the data
-    
-    
     list.LengthList()
     
     #Inserting a value at the end of the list
@@ -237,7 +221,6 @@ if __name__ == '__main__':
     print("--------------- LISTA ---------------")
     list.LengthList()
     print('')
-
 
     print("--------------- Search Element ---------------")
     list.SearchElement(11)
@@ -273,8 +256,6 @@ if __name__ == '__main__':
     print("List before remove certain position")
     list.LengthList()
     print('')
-
-
 
     print('--------------------------------------------')
     print(f'The size a list after remove elements [{list.size}]')
