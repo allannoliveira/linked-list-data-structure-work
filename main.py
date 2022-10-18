@@ -1,3 +1,15 @@
+"""
+    __________________________________
+   /        Nome          |   RA      \
+  | Allan Silva Oliveira  | G375068    |
+  | Matheus Lopes Ribeiro | N6318G1    |
+   \__________________________________/
+    """
+
+
+
+
+
 class Node:
     def __init__(self, data):
         self.data = data
@@ -34,8 +46,7 @@ class LinkedList:
             print(current_node.data)
             current_node = current_node.next
             cont += 1
-
-    
+   
     def RmvFirstPosition(self): 
         """Método que irá remover a primeira posição"""
         if self.head is None:
@@ -112,74 +123,109 @@ class LinkedList:
                 cont += 1
             self.RmvCertainPosition(cont)
 
+
+    def InsertIntoFinal(self, value):
+        """Insere no final"""
+        current_node = self.head.next
+
+        while current_node.next != self.head:
+            current_node = current_node.next
+
+        if self.head is None:
+            self.head = Node(value)
+            self.head.next = self.head
+            self.head.before = self.head
+            self.size = 1
+        else:
+            before_node = current_node
+
+            current_node = Node(value)
+            current_node.before = before_node
+            before_node.next = current_node
+            current_node.next = self.head
+            self.head.before = current_node
+            self.size += 1
     
-    
+    def Insert(self, value, position):
+        cont = 1
+        current_node = self.head
 
+        if position <= 0:
+            self.InsertIntoInit(value)
+        
+        while cont != position:
+            current_node = current_node.next
+            cont += 1
 
+        if self.head is None:
+            self.head = Node(value)
+            self.head.next = self.head
+            self.head.before = self.head
+            self.size = 1
 
+        elif position > self.size:
+            self.InsertIntoFinal(value)
+        
+        else:
+            before_node = current_node.before
+            next_node = before_node.next
             
+            current_node = Node(value)
+            current_node.before = before_node
+            current_node.next = next_node
+            before_node.next = current_node
+            next_node.before = current_node
+            self.size += 1
+
+    def SearchIndex(self, position):
+        cont = 1
+        current_node = self.head
+        while cont != position:
+            current_node = current_node.next
+            cont += 1
+        print(current_node.data)
+
+    def SearchElement(self, element):
+        cont = 1
+        current_node = self.head
+        while current_node.data != element:
+            current_node = current_node.next
+            cont += 1
+            if cont > self.size:
+                print("A value out of range the list")
+                return
+        print(f'The value [{element}] is in the position: [{cont}] ')
+        
+          
 
 if __name__ == '__main__':
-    #criando a lista
-    lista = LinkedList()
+    # Making the List
+    list = LinkedList()
     
-    #Insere valor na lista
-    lista.InsertIntoInit(5)
-    lista.InsertIntoInit(6)
-    lista.InsertIntoInit(7)  
-    lista.InsertIntoInit(8)
-    lista.InsertIntoInit(9)
-    lista.InsertIntoInit(10)
-    lista.InsertIntoInit(11)
-    lista.InsertIntoInit(12)
-    lista.InsertIntoInit(13)
-    lista.InsertIntoInit(14)
+    # Inserting a value to the list
+    list.InsertIntoInit(6)
+    list.InsertIntoInit(7)
+    list.InsertIntoInit(8)
+    list.InsertIntoInit(9)
+    list.InsertIntoInit(11)
+    list.InsertIntoInit(12)
+    list.InsertIntoInit(13)
+    list.InsertIntoInit(14)
+    list.InsertIntoInit(15)
+    list.InsertIntoInit(16)
+    list.InsertIntoInit(18)
+    # Display the list after entering the data
     
-    print('--------- Lista ----------')
-    lista.LengthList() #Exibe a lista para o usuário 
-    print('--------------------------')
-
-    print("Removendo primeira posição: ")
-    lista.RmvFirstPosition() #Remove a primeira posição da lista
-    lista.LengthList()
-    print('--------------------------')
-
-    print("Removendo ultima posição: ")
-    lista.RmvLastPosition()
-    lista.LengthList()
-    print('--------------------------')
-
-    n = int(input('Digite qual posição deseja remover: '))
-    lista.RmvCertainPosition(n)
     
-    print('--------------------------')
-    print(f"Lista após remoção da posiçaõ ({n}): ")
-    lista.LengthList()
+    list.LengthList()
+    #Inserting a value at the end of the list
+    list.InsertIntoFinal(19)
+    list.InsertIntoFinal(20)
 
-    n = int(input("Digite o valor que deseja remover: "))
-    lista.RmvDeterminedValue(n)
-    lista.LengthList()
+    # 
+    list.LengthList()
 
-    print("Tamanho da lista: ")
-    print(lista.size)
 
-    n = int(input("add o valor que deseja procurar na lista: "))
-    print(lista.Search(n))
 
-    
- """
-        testar dps
-        def Search(self, item):
-        current_node = self.head
-        found = False
-        stop = False
-
-        while current_node != None and not found and not stop:
-            if current_node.LengthList() == item():
-                found = True
-            else:
-                if current_node.LengthList() > item():
-                    stop = True
-                else:
-                    current_node = current_node.next
-        return found"""
+    print("----------------")
+    list.SearchElement(11)
